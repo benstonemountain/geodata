@@ -1,0 +1,20 @@
+<div class="home-wrap">
+
+    <form class="user-input" [formGroup]="searchForm">
+        <label for="city-search">Enter a city name: </label>
+        <input type="text" id="city-search" formControlName="search">
+        <div class="button">
+            <button (click)="onCitySearch()">Search</button>
+        </div>
+    </form>
+
+    <div *ngIf="geoLocationData$ | async as geoLocationData">
+
+        <div *ngFor="let gd of geoLocationData">
+
+            <app-geodata-card [geoData]="gd" [countryNames]="countryNames$ | async"></app-geodata-card>
+
+        </div>
+
+    </div>
+</div>
