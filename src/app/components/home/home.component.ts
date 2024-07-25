@@ -7,35 +7,31 @@ import { GeoData } from '../../model/geo-data';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  geoLocationData$: Observable<GeoData[] | null> =
+    this.geoStateService.geoDataObservable$;
 
-  geoLocationData$!: Observable<GeoData[] | null>;
-  countryNames$!: Observable<{ [key: string]: string }>;
+  countryNames$: Observable<{ [key: string]: string }> =
+    this.geoStateService.countryNameObservable$.pipe(
+      map((countryNames) => countryNames || {})
+    );
 
   searchForm = this.formBuilder.group({
-    search: [""],
-  })
+    search: [''],
+  });
 
-  constructor(private formBuilder: FormBuilder, private geoStateService: GeoStateService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private geoStateService: GeoStateService
+  ) {}
 
-  ngOnInit() {
-    this.geoLocationData$ = this.geoStateService.geoDataObservable$;
-    this.countryNames$ = this.geoStateService.countryNameObservable$.pipe(
-      map(countryNames => countryNames || {}) // Ensure it's an empty object if null
-    );
-  }
 
   onCitySearch() {
     const userInput = this.searchForm.value.search;
     console.log(userInput);
 
-    if(userInput)
-    this.geoStateService.handleGeodataApi(userInput);
-    
+    if (userInput) this.geoStateService.handleGeodataApi(userInput);
   }
-
-
-
 }

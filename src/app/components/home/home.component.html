@@ -9,7 +9,6 @@
     </form>
 
     <div *ngIf="geoLocationData$ | async as geoLocationData">
-
         <div *ngFor="let gd of geoLocationData">
 
             <app-geodata-card [geoData]="gd" [countryNames]="countryNames$ | async"></app-geodata-card>

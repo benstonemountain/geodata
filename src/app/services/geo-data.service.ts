@@ -23,10 +23,10 @@ export class GeoDataService {
    return this.httpClient.get<GeoData[]>(this.geoLocationApiUrl+`?city=${city}`, {headers});
   }
 
-  fetchCountryName(latitude: number, longitude: number):Observable<{ country: string }> {
+  fetchCountryName(latitude: number, longitude: number):Observable<{ countryName: string }> {
     console.log(latitude);
     console.log(longitude);
     
-    return this.httpClient.get<{ country: string }>(`${this.countryNameApiUrl}?latitude=${latitude}&longitude=${longitude}&localityLanguage=en&key=bdc_2507cb4e967141d89d8c55914ba87d7d`);
+    return this.httpClient.get<{ countryName: string }>(`${this.countryNameApiUrl}?latitude=${latitude}&longitude=${longitude}&localityLanguage=en&key=bdc_2507cb4e967141d89d8c55914ba87d7d`);
   }
 }
