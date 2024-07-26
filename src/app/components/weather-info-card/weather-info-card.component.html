@@ -3,8 +3,8 @@
     <div>Hőérzet: {{weatherData.main.feels_like}}C°</div>
     <div>Légnyomás (tengerszinten): {{weatherData.main.sea_level}} hPa</div>
     <div>Páratartalom: {{weatherData.main.humidity}} %</div>
-    <div>Napfelkelte: {{weatherData.sys.sunrise}}</div>
-    <div>Naplemente: {{weatherData.sys.sunset}}</div>
+    <div>Napfelkelte: {{convertEpochTime(weatherData.sys.sunrise) | date:'yyyy:MM:dd HH:mm:ss'}}</div>
+    <div>Naplemente: {{convertEpochTime(weatherData.sys.sunset) | date:'yyyy:MM:dd HH:mm:ss'}}</div>
     <div>Időzóna: {{weatherData.timezone}}</div>
     <div>Szélirány: {{weatherData.wind.deg}}° ({{getWindDirection(weatherData.wind.deg)}})</div>
     <div>Szél sebesség: {{convertWindSpeed(weatherData.wind.speed)}} km/ó ( {{getWindSpeedExplanation(weatherData.wind.speed)}})</div>

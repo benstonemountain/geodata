@@ -72,8 +72,9 @@ export class WeatherInfoCardComponent {
       return direction;
   }
 
-  convertEpochTime(unixTime: number) {
-    const unixTimeInMilliseconds: number = unixTime * 1000;
+  convertEpochTime(unixTime: number): Date {
+    return new Date(unixTime * 1000);
+    
   }
 
 
