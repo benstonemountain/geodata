@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GeoData } from '../../model/geo-data';
 
 @Component({
@@ -11,6 +11,8 @@ export class GeodataCardComponent {
   @Input() geoData!: GeoData;
   @Input() countryNames: { [key: string]: string } | null = {};
 
+  @Output() emitingLatAndLon = new EventEmitter<{lat: number, lon: number}>;
+
   // constructor() {
   //   console.log("hello from constructor", this.geoData);
   // }
@@ -20,6 +22,15 @@ export class GeodataCardComponent {
 
   get countryName(): string {
     return this.countryNames?.[`${this.geoData.latitude},${this.geoData.longitude}`] || this.geoData.country;
+  }
+
+  onSearchWeatherInfo(latitude: number, longitude: number) {  
+    const coordinations = {
+      lat: latitude,
+      lon: longitude
+    }  
+      this.emitingLatAndLon.emit(coordinations);
+
   }
 
 }

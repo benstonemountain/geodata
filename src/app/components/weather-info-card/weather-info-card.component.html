@@ -1,0 +1,17 @@
+<div class="weather-info-card-wrap" *ngIf="weatherData">
+    <div>Hőmérséklet: {{weatherData.main.temp}} C°</div>
+    <div>Hőérzet: {{weatherData.main.feels_like}}C°</div>
+    <div>Légnyomás (tengerszinten): {{weatherData.main.sea_level}} hPa</div>
+    <div>Páratartalom: {{weatherData.main.humidity}} %</div>
+    <div>Napfelkelte: {{weatherData.sys.sunrise}}</div>
+    <div>Naplemente: {{weatherData.sys.sunset}}</div>
+    <div>Időzóna: {{weatherData.timezone}}</div>
+    <div>Szélirány: {{weatherData.wind.deg}}° ({{getWindDirection(weatherData.wind.deg)}})</div>
+    <div>Szél sebesség: {{convertWindSpeed(weatherData.wind.speed)}} km/ó ( {{getWindSpeedExplanation(weatherData.wind.speed)}})</div>
+    <div *ngFor="let i of weatherData?.weather">
+        <div>{{i.description}} ({{weatherData.clouds.all}}%-ban felhős)</div>
+        <div><img src="https://openweathermap.org/img/wn/{{i.icon}}@2x.png" alt="icon"></div>
+    </div>
+</div>
+
+

@@ -1,19 +1,27 @@
 <div class="home-wrap">
-
-    <form class="user-input" [formGroup]="searchForm">
-        <label for="city-search">Enter a city name: </label>
-        <input type="text" id="city-search" formControlName="search">
-        <div class="button">
-            <button (click)="onCitySearch()">Search</button>
+	<form class="user-input" [formGroup]="searchForm">
+        <div class="input-field">
+            <label for="city-search">Enter a city name: </label>
+            <input type="text" id="city-search" formControlName="search" />
         </div>
-    </form>
+	
 
-    <div *ngIf="geoLocationData$ | async as geoLocationData">
-        <div *ngFor="let gd of geoLocationData">
+		<button class="search-button" (click)="onCitySearch()">
+			<span class="front"> Search </span>
+		</button>
+	</form>
 
-            <app-geodata-card [geoData]="gd" [countryNames]="countryNames$ | async"></app-geodata-card>
+	<div *ngIf="geoLocationData$ | async as geoLocationData" class="geodata-card-container">
+		<div *ngFor="let gd of geoLocationData">
+			<app-geodata-card
+				[geoData]="gd"
+				[countryNames]="countryNames$ | async"
+				(emitingLatAndLon)="gettingLatAndLon($event)"
+			></app-geodata-card>
+		</div>
+	</div>
 
-        </div>
-
-    </div>
+	<div *ngIf="weatherData$">
+		<app-weather-info-card [weatherData]="weatherData$ | async"></app-weather-info-card>
+	</div>
 </div>

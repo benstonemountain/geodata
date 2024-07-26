@@ -1,9 +1,9 @@
 <div class="geo-data-card">
     <div>{{geoData.name}}</div>
     <div>{{ countryName }}</div>
-    <div>{{geoData.latitude}}</div>
-    <div>{{geoData.longitude}}</div>
+    <div>{{+geoData.latitude.toFixed(2)}}</div>
+    <div>{{+geoData.longitude.toFixed(2)}}</div>
     <div>
-        <button>Ezt keresem</button>
+        <button (click)="onSearchWeatherInfo(geoData.latitude, geoData.longitude)">Ezt keresem</button>
     </div>
 </div>

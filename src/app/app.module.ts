@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { GeodataCardComponent } from './components/geodata-card/geodata-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WeatherInfoCardComponent } from './components/weather-info-card/weather-info-card.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     GeodataCardComponent,
     GeodataCardComponent,
+    WeatherInfoCardComponent,
     
   ],
   imports: [
