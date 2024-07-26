@@ -72,6 +72,7 @@ export class WeatherInfoCardComponent {
       return direction;
   }
 
+  //ez magyar idő szerint (GMT+2) fogja nekem mutatni
   convertEpochTime(unixTime: number): Date {
     return new Date(unixTime * 1000);
     
