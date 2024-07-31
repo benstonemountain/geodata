@@ -1,17 +1,60 @@
 <div class="weather-info-card-wrap" *ngIf="weatherData">
-    <div>Hőmérséklet: {{weatherData.main.temp}} C°</div>
-    <div>Hőérzet: {{weatherData.main.feels_like}}C°</div>
-    <div>Légnyomás (tengerszinten): {{weatherData.main.sea_level}} hPa</div>
-    <div>Páratartalom: {{weatherData.main.humidity}} %</div>
-    <div>Napfelkelte: {{convertEpochTime(weatherData.sys.sunrise) | date:'yyyy:MM:dd HH:mm:ss'}}</div>
-    <div>Naplemente: {{convertEpochTime(weatherData.sys.sunset) | date:'yyyy:MM:dd HH:mm:ss'}}</div>
-    <div>Időzóna: {{weatherData.timezone}}</div>
-    <div>Szélirány: {{weatherData.wind.deg}}° ({{getWindDirection(weatherData.wind.deg)}})</div>
-    <div>Szél sebesség: {{convertWindSpeed(weatherData.wind.speed)}} km/ó ( {{getWindSpeedExplanation(weatherData.wind.speed)}})</div>
-    <div *ngFor="let i of weatherData?.weather">
-        <div>{{i.description}} ({{weatherData.clouds.all}}%-ban felhős)</div>
-        <div><img src="https://openweathermap.org/img/wn/{{i.icon}}@2x.png" alt="icon"></div>
+	<div *ngFor="let i of weatherData?.weather" class="cloud-description-wrap">
+		<div class="cloud-description-content" >
+			<div>{{firstLetterToUpperCase(i.description)}} ({{weatherData.clouds.all}}%-ban
+                felhős)</div>
+          <div>
+            <img class="weather-icon"
+            src="https://openweathermap.org/img/wn/{{i.icon}}@2x.png"
+            alt="icon"/>
+
+          </div>  
+		</div>
+	
+	</div>
+
+	<div class="temperature">
+		<div>Hőmérséklet:</div>
+		<div>{{weatherData.main.temp}} C°</div>
+	</div>
+
+	<div class="temp_feel">
+		<div>Hőérzet:</div>
+		<div>{{weatherData.main.feels_like}} C°</div>
+	</div>
+
+	<div class="pressure">
+		<div>Légnyomás (tengerszinten):</div>
+		<div>{{weatherData.main.sea_level}} hPa</div>
+	</div>
+
+	<div class="humidity">
+		<div>Páratartalom:</div>
+		<div>{{weatherData.main.humidity}} %</div>
+	</div>
+
+	<div class="wind-direction">
+		<div>Szélirány:</div>
+		<div>{{weatherData.wind.deg}}° ({{getWindDirection(weatherData.wind.deg)}})</div>
+	</div>
+
+	<div class="wind-speed">
+		<div>Szél sebesség:</div>
+		<div>
+			{{convertWindSpeed(weatherData.wind.speed)}} km/ó ({{getWindSpeedExplanation(weatherData.wind.speed)
+			}})
+		</div>
+	</div>
+
+	
+    <div class="sunrise">
+            <div>Napfelkelte:</div>
+            <div>{{convertEpochTime(weatherData.sys.sunrise) | date:'yyyy:MM:dd HH:mm:ss'}}</div>
     </div>
+
+    <div class="sunfall">
+            <div>Naplemente:</div>
+            <div>{{convertEpochTime(weatherData.sys.sunset) | date:'yyyy:MM:dd HH:mm:ss'}}</div>
+    </div>
+
 </div>
-
-

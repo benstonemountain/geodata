@@ -24,4 +24,8 @@
 	<div *ngIf="weatherData$">
 		<app-weather-info-card [weatherData]="weatherData$ | async"></app-weather-info-card>
 	</div>
+
+	<div *ngIf="timeData$">
+		<app-time-info-card [timeInfo]="timeData$ | async"></app-time-info-card>
+	</div>
 </div>

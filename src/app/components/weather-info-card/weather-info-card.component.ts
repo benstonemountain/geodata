@@ -75,7 +75,12 @@ export class WeatherInfoCardComponent {
   //ez magyar idő szerint (GMT+2) fogja nekem mutatni
   convertEpochTime(unixTime: number): Date {
     return new Date(unixTime * 1000);
-    
+  }
+
+  firstLetterToUpperCase(text: string) {
+    const firstLetter = text.charAt(0).toUpperCase();
+    const resultText = firstLetter+text.slice(1);
+    return resultText;
   }
 
 
