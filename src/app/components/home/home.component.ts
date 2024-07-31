@@ -31,7 +31,7 @@ export class HomeComponent {
 		private formBuilder: FormBuilder,
 		private geoStateService: GeoStateService,
 		private weatherStateService: WeatherStateService,
-    private timeInfoStateService: TimeinfoStateService,
+    	private timeInfoStateService: TimeinfoStateService,
 	) {}
 
 	onCitySearch() {

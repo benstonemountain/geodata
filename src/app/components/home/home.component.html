@@ -26,6 +26,6 @@
 	</div>
 
 	<div *ngIf="timeData$">
-		<app-time-info-card [timeInfo]="timeData$ | async"></app-time-info-card>
+		<app-time-info-card [timeInfo$]="timeData$"></app-time-info-card>
 	</div>
 </div>

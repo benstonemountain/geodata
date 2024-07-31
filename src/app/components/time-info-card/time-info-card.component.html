@@ -1,6 +1,7 @@
-<div class="time-info-card">
-    <div>{{timeInfo?.displayName}}</div>
-    <div>{{timeInfo?.localTime}}</div>
-    <div>{{timeInfo?.ianaTimeId}}</div>
-
+<div class="time-info-card" *ngIf="timeInfo$ | async; let info">
+    <div>{{info?.displayName}}</div>
+    <div>{{info?.localTime}}</div>
+    <div>{{info?.ianaTimeId}}</div>
+    <div>{{localTime}}</div>
+ 
 </div>

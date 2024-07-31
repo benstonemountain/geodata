@@ -16,6 +16,8 @@ export class TimeinfoStateService {
 		this.timeInfoDataService.fetchTimeInfo(coordinates).subscribe({
 			next: (timeInfo) => {
 				console.log(timeInfo);
+				console.log(timeInfo.ianaTimeId);
+				
         this._timInfoSubject.next(timeInfo);
 			},
 
