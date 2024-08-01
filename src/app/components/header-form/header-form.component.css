@@ -1,0 +1,62 @@
+.user-input-wrap {
+	width: 100%;
+    height: 100vh;
+    height: 80px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    row-gap: 10px;
+    background: url("../../../assets/pics/citybg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 10% 38%;
+}
+
+/* text input mező */
+
+#city-search-input {
+    height: 25px;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+    backdrop-filter: blur(4px); /* Blurry effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    outline: none;
+} 
+
+#city-search-input::placeholder  {
+    color: rgba(51, 51, 51, 0.7);
+}
+
+#city-search-input:focus  {
+    background-color: rgba(255, 255, 255, 0.5); /* Slightly less transparent when focused */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on focus */
+}
+
+.search-button {
+    font-size: 1.3rem;
+    color: #1f1f1f;
+    background-color: rgba(255, 255, 255, 0.6); 
+    padding: 5px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+
+    /* 3D effect using box-shadow */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2),
+                -2px -2px 6px rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(2px); 
+}
+
+.search-button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.search-button:active {
+    transform: translateY(2px); 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25),
+                -2px -2px 5px rgba(255, 255, 255, 0.8);
+}

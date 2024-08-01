@@ -1,38 +1,5 @@
-.user-input {
-	/* border: 1px solid black; */
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-
-
-.search-button {
-	background-color: rgb(122, 122, 110);
-	border-radius: 6px;
-	border: none;
-	padding: 0;
-	cursor: pointer;
-	margin-top: 10px;
-}
-.front {
-	display: block;
-	padding: 3px 12px;
-	border-radius: 6px;
-	font-size: 1rem;
-	background-color: rgb(196, 196, 176);
-	color: black;
-	transform: translateY(-6px);
-}
-
-.search-button:active .front {
-	transform: translateY(-2px);
-}
-
 .geodata-card-container {
-	/* border: 1px solid blue; */
+
 	margin-top: 10px;
     display: flex;
 	flex-direction: column;

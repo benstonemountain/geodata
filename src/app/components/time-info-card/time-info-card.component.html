@@ -1,7 +1,7 @@
 <div class="time-info-card" *ngIf="timeInfo$ | async; let info">
-    <div>{{info?.displayName}}</div>
-    <div>{{info?.localTime}}</div>
-    <div>{{info?.ianaTimeId}}</div>
-    <div>{{localTime}}</div>
+    <!-- <div>{{info?.localTime}}</div>
+    <div>{{info?.ianaTimeId}}</div> -->
+    <div>Helyi idő: {{localTime}}</div>
+    <div>Időzóna: {{info?.displayName}}</div>
  
 </div>

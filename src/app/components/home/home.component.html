@@ -2,7 +2,7 @@
 
 	<app-header-form (onEmitCityName)="gettingCityName($event)" ></app-header-form>
 
-	<div *ngIf="geoLocationData$ | async as geoLocationData" class="geodata-card-container"   >
+	<div *ngIf="geoLocationData$ | async as geoLocationData" class="geodata-card-container">
 		<div *ngFor="let gd of geoLocationData" >
 			<app-geodata-card
 				[geoData]="gd"
