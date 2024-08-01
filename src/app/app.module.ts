@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WeatherInfoCardComponent } from './components/weather-info-card/weather-info-card.component';
 import { TimeInfoCardComponent } from './components/time-info-card/time-info-card.component';
+import { HeaderFormComponent } from './components/header-form/header-form.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { TimeInfoCardComponent } from './components/time-info-card/time-info-car
     GeodataCardComponent,
     WeatherInfoCardComponent,
     TimeInfoCardComponent,
+    HeaderFormComponent,
 
     
   ],

@@ -18,6 +18,8 @@ export class GeoStateService {
   constructor(private geoDataService: GeoDataService) {}
 
   handleGeodataApi(city: string) {
+    console.log(city);
+    
     this.geoDataService
       .fetchGeoDataApi(city)
       .pipe(
