@@ -15,12 +15,12 @@
 
 	<div class="temperature">
 		<div>Hőmérséklet:</div>
-		<div>{{weatherData.main.temp}} C°</div>
+		<div>{{weatherData.main.temp.toFixed(1)}} C°</div>
 	</div>
 
 	<div class="temp_feel">
 		<div>Hőérzet:</div>
-		<div>{{weatherData.main.feels_like}} C°</div>
+		<div>{{weatherData.main.feels_like.toFixed(1)}} C°</div>
 	</div>
 
 	<div class="pressure">
@@ -41,7 +41,7 @@
 	<div class="wind-speed">
 		<div>Szél sebesség:</div>
 		<div>
-			{{convertWindSpeed(weatherData.wind.speed)}} km/ó ({{getWindSpeedExplanation(weatherData.wind.speed)
+			{{convertWindSpeed(+weatherData.wind.speed.toFixed(1))}} km/ó ({{getWindSpeedExplanation(weatherData.wind.speed)
 			}})
 		</div>
 	</div>
