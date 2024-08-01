@@ -14,7 +14,10 @@ export class WeatherStateService {
 
   constructor(private weatherDataService: WeatherDataService) { }
 
-  getWeatherData(coordinates: {lat: number, lon: number}) {
+  getWeatherData(coordinates: {lat: number, lon: number} | null) {
+    if (coordinates === null) {
+      this._arrivingWeatherInfo$.next(null);
+  } else {
     this.weatherDataService.fetchWeatherInfo(coordinates).subscribe(
       {
         next: (wi) => {
@@ -29,4 +32,5 @@ export class WeatherStateService {
       }
     )
   }
+}
 }

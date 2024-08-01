@@ -12,18 +12,27 @@ export class TimeinfoStateService {
 
 	constructor(private timeInfoDataService: TimeinfoDataService) {}
 
-	getTimeInfo(coordinates: { lat: number; lon: number }) {
-		this.timeInfoDataService.fetchTimeInfo(coordinates).subscribe({
-			next: (timeInfo) => {
-				console.log(timeInfo);
-				console.log(timeInfo.ianaTimeId);
-				
-        this._timInfoSubject.next(timeInfo);
-			},
+	getTimeInfo(coordinates: { lat: number; lon: number } | null) {
 
-			error: (err) => {
-				console.log(err);
-			},
-		});
+		if (coordinates === null) {
+			this._timInfoSubject.next(null);
+		} else { 
+
+			this.timeInfoDataService.fetchTimeInfo(coordinates).subscribe({
+				next: (timeInfo) => {
+					console.log(timeInfo);
+					console.log(timeInfo.ianaTimeId);
+					
+			this._timInfoSubject.next(timeInfo);
+				},
+	
+				error: (err) => {
+					console.log(err);
+				},
+			});
+
+		}
+
+	
 	}
 }
