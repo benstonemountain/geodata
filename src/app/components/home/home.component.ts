@@ -12,7 +12,7 @@ import { TimeinfoStateService } from '../../services/timeinfo-state.service';
 	styleUrl: './home.component.css',
 })
 export class HomeComponent {
-	geoLocationData$: Observable<GeoData[] | null> =
+		geoLocationData$: Observable<GeoData[] | null> =
 		this.geoStateService.geoDataObservable$;
 
 	countryNames$: Observable<{ [key: string]: string }> =
@@ -21,29 +21,28 @@ export class HomeComponent {
 		);
 
 	weatherData$ = this.weatherStateService.arrivingWeatherInfoObs$;
-  timeData$ = this.timeInfoStateService.timeInfoObservable$;
+  	timeData$ = this.timeInfoStateService.timeInfoObservable$;
 
-	searchForm = this.formBuilder.group({
-		search: [''],
-	});
+
 
 	constructor(
-		private formBuilder: FormBuilder,
+	
 		private geoStateService: GeoStateService,
 		private weatherStateService: WeatherStateService,
     	private timeInfoStateService: TimeinfoStateService,
 	) {}
 
-	onCitySearch() {
-		const userInput = this.searchForm.value.search;
-		console.log(userInput);
 
-		if (userInput) this.geoStateService.handleGeodataApi(userInput);
-	}
 
 	gettingLatAndLon(cor: { lat: number; lon: number }) {
 		console.log(cor);
 		this.weatherStateService.getWeatherData(cor);
     	this.timeInfoStateService.getTimeInfo(cor)
+	}
+
+	gettingCityName(cityName: string) {
+		console.log(cityName);
+		
+		if (cityName) this.geoStateService.handleGeodataApi(cityName);
 	}
 }

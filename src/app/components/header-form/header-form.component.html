@@ -1,0 +1,11 @@
+<form class="user-input" [formGroup]="searchForm">
+    <div class="input-field">
+        <label for="city-search">Enter a city name: </label>
+        <input type="text" id="city-search" formControlName="search" />
+    </div>
+
+
+    <button class="search-button" (click)="onCitySearch()">
+        <span class="front"> Search </span>
+    </button>
+</form>

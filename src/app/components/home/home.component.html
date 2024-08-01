@@ -1,21 +1,13 @@
 <div class="home-wrap">
-	<form class="user-input" [formGroup]="searchForm">
-        <div class="input-field">
-            <label for="city-search">Enter a city name: </label>
-            <input type="text" id="city-search" formControlName="search" />
-        </div>
-	
 
-		<button class="search-button" (click)="onCitySearch()">
-			<span class="front"> Search </span>
-		</button>
-	</form>
+	<app-header-form (onEmitCityName)="gettingCityName($event)" ></app-header-form>
 
-	<div *ngIf="geoLocationData$ | async as geoLocationData" class="geodata-card-container">
-		<div *ngFor="let gd of geoLocationData">
+	<div *ngIf="geoLocationData$ | async as geoLocationData" class="geodata-card-container"   >
+		<div *ngFor="let gd of geoLocationData" >
 			<app-geodata-card
 				[geoData]="gd"
 				[countryNames]="countryNames$ | async"
+				
 				(emitingLatAndLon)="gettingLatAndLon($event)"
 			></app-geodata-card>
 		</div>
