@@ -38,11 +38,13 @@ export class HomeComponent {
 		console.log(cor);
 		this.weatherStateService.getWeatherData(cor);
     	this.timeInfoStateService.getTimeInfo(cor)
+
 	}
 
 	gettingCityName(cityName: string) {
 		console.log(cityName);
-		
 		if (cityName) this.geoStateService.handleGeodataApi(cityName);
+		this.weatherStateService.getWeatherData(null);
+    	this.timeInfoStateService.getTimeInfo(null);
 	}
 }

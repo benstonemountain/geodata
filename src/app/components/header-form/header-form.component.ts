@@ -24,8 +24,7 @@ export class HeaderFormComponent {
 		console.log(userInput);
     if (userInput) 
     this.onEmitCityName.emit(userInput);
-
-		
+  	
 	}
 
 }
