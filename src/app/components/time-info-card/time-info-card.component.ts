@@ -16,7 +16,6 @@ export class TimeInfoCardComponent {
   intervalId: any;
 
   ngOnInit() {
-    // Start the time update when the component is initialized
     this.startUpdatingTime();
   }
 
@@ -44,7 +43,8 @@ export class TimeInfoCardComponent {
 
   getLocalTime(tz: string | undefined): string {
     if (tz) {
-      const currentDate = new Date().toLocaleTimeString('hu-HU', { timeZone: tz, timeZoneName: 'shortOffset' });
+      const currentDate = new Date().toLocaleTimeString('hu-HU', { timeZone: tz });
+      // timeZoneName: 'shortOffset'
       return currentDate;
     }
   return "1";

@@ -48,13 +48,29 @@
 
 	
     <div class="sunrise">
-            <div>Napfelkelte:</div>
-            <div>{{convertEpochTime(weatherData.sys.sunrise) | date:'yyyy:MM:dd HH:mm:ss'}}</div>
+            <div>Napfelkelte (magyar idő szerint):</div>
+            <div>{{convertEpochTime(weatherData.sys.sunrise) | date:'yyyy:MM:dd HH:mm'}}</div>
     </div>
 
     <div class="sunfall">
-            <div>Naplemente:</div>
-            <div>{{convertEpochTime(weatherData.sys.sunset) | date:'yyyy:MM:dd HH:mm:ss'}}</div>
+            <div>Naplemente: (magyar idő szerint)</div>
+            <div>{{convertEpochTime(weatherData.sys.sunset) | date:'yyyy:MM:dd HH:mm'}}</div>
     </div>
+
+    <!-- <div class="sunrise">
+            <div>Napfelkelte (helyi idő szerint):</div>
+            <div>{{convertEpochLocalTime(weatherData.sys.sunrise, weatherData.timezone) | date:'yyyy:MM:dd HH:mm'}}</div>
+    </div>
+
+    <div class="sunfall">
+            <div>Naplemente: (helyi idő szerint)</div>
+            <div>{{convertEpochLocalTime(weatherData.sys.sunset, weatherData.timezone) | date:'yyyy:MM:dd HH:mm'}}</div>
+    </div>
+
+    <div class="shift">
+            <div>utc: </div>
+            <div>{{weatherData.timezone}}</div>
+    </div> -->
+
 
 </div>
