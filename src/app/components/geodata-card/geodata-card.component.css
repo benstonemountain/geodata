@@ -1,8 +1,8 @@
 .geo-data-card {
     border: 1px dotted black;
-    width: 400px;
+    width: 600px;
     display: grid;
-    grid-template-columns: 20% 35% 12% 13% 20%;
+    grid-template-columns: repeat(6, 1fr);
 
 }
 

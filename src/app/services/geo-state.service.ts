@@ -7,6 +7,8 @@ import { GeoData } from '../model/geo-data';
   providedIn: 'root',
 })
 export class GeoStateService {
+ 
+
   private _geoDataSubject = new BehaviorSubject<GeoData[] | null>(null);
   readonly geoDataObservable$ = this._geoDataSubject.asObservable();
 
@@ -41,7 +43,25 @@ export class GeoStateService {
         next: (geodata) => {
           console.log(geodata);
 
-          this._geoDataSubject.next(geodata);
+          let filteredGeoDataArray: GeoData[] = [];
+
+          geodata.forEach(item => {
+            const isAlreadyInFiltered = filteredGeoDataArray.some(filteredItem => 
+              filteredItem.name === item.name && filteredItem.country === item.country &&
+              filteredItem.state === item.state
+            );
+          
+            if (!isAlreadyInFiltered) {
+              filteredGeoDataArray.push(item);
+            }
+          });
+
+          console.log(filteredGeoDataArray);
+          
+
+
+
+          this._geoDataSubject.next(filteredGeoDataArray);
         },
 
         error: (err) => {
