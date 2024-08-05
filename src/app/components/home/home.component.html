@@ -11,12 +11,12 @@
 			<div>Longitude</div>
 			<div>Choose city</div>
 		</div>
-		<div *ngFor="let gd of geoLocationData" >
+		<div *ngFor="let gd of geoLocationData; let i = index" >
 			<app-geodata-card
 				[geoData]="gd"
 				[countryNames]="countryNames$ | async"
-				
-				(emitingLatAndLon)="gettingLatAndLon($event)"
+				[isSelected]="selectedCardIndex === i"
+				(emitingLatAndLon)="gettingLatAndLon($event, i)"
 			></app-geodata-card>
 		</div>
 	</div>

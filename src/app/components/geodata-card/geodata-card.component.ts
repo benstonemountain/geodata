@@ -13,12 +13,8 @@ export class GeodataCardComponent {
 
   @Output() emitingLatAndLon = new EventEmitter<{lat: number, lon: number}>;
 
-  // constructor() {
-  //   console.log("hello from constructor", this.geoData);
-  // }
-  // ngOnInit() {
-  //   console.log("hello from ngOnInit", this.geoData);
-  // }
+  @Input() isSelected: boolean = false;
+
 
   get countryName(): string {
     return this.countryNames?.[`${this.geoData.latitude},${this.geoData.longitude}`] || this.geoData.country;

@@ -30,7 +30,7 @@ export class GeoStateService {
             geoData.map((d) => 
               this.geoDataService.fetchCountryName(d.latitude, d.longitude).pipe(
                 map((response) => {
-                  console.log(response);
+                  // console.log(response);
                   d.country = response.countryName;
                   return d;
                 })

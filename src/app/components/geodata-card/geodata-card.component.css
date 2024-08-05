@@ -15,3 +15,7 @@
     text-align: center;
     overflow-y: auto;
 }
+
+.geo-data-card.selected {
+    background-color: red; 
+  }

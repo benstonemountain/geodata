@@ -23,10 +23,11 @@ export class HomeComponent {
 	weatherData$ = this.weatherStateService.arrivingWeatherInfoObs$;
   	timeData$ = this.timeInfoStateService.timeInfoObservable$;
 
+	  selectedCardIndex: number | null = null;
+
 
 
 	constructor(
-	
 		private geoStateService: GeoStateService,
 		private weatherStateService: WeatherStateService,
     	private timeInfoStateService: TimeinfoStateService,
@@ -34,12 +35,14 @@ export class HomeComponent {
 
 
 
-	gettingLatAndLon(cor: { lat: number; lon: number }) {
+	gettingLatAndLon(cor: { lat: number; lon: number }, index: number) {
 		console.log(cor);
 		this.weatherStateService.getWeatherData(cor);
-    	this.timeInfoStateService.getTimeInfo(cor)
-
-	}
+		this.timeInfoStateService.getTimeInfo(cor);
+		this.selectedCardIndex = index; 
+		console.log("selected index: ", this.selectedCardIndex);
+		
+	  }
 
 	gettingCityName(cityName: string) {
 		console.log(cityName);

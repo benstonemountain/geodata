@@ -1,4 +1,4 @@
-<div  class="geo-data-card">
+<div [class.selected]="isSelected"  class="geo-data-card">
 	<div>{{geoData.name}}</div>
 	<div>{{ countryName }}</div>
 	<div>{{geoData.state ? geoData.state :  "-"}}</div>
