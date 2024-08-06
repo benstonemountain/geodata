@@ -49,5 +49,6 @@ export class HomeComponent {
 		if (cityName) this.geoStateService.handleGeodataApi(cityName);
 		this.weatherStateService.getWeatherData(null);
     	this.timeInfoStateService.getTimeInfo(null);
+		this.selectedCardIndex = null;
 	}
 }
