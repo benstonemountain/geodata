@@ -21,6 +21,9 @@
 		</div>
 	</div>
 	
+	<app-city-search-error [citySearchError$]="citySearchError$"></app-city-search-error>
+
+
 	<div *ngIf="timeData$" class="timeinfo-card-home-container child-app-wrap" >
 		<app-time-info-card [timeInfo$]="timeData$"></app-time-info-card>
 	</div>

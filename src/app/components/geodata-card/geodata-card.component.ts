@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GeoData } from '../../model/geo-data';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-geodata-card',
@@ -14,6 +15,7 @@ export class GeodataCardComponent {
   @Output() emitingLatAndLon = new EventEmitter<{lat: number, lon: number}>;
 
   @Input() isSelected: boolean = false;
+ 
 
 
   get countryName(): string {

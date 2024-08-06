@@ -25,6 +25,7 @@ export class HomeComponent {
 
 	  selectedCardIndex: number | null = null;
 
+	  citySearchError$: Observable<boolean> = this.geoStateService.errorMessageObservable$;
 
 
 	constructor(
