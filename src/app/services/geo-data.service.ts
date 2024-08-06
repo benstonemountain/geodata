@@ -17,6 +17,8 @@ export class GeoDataService {
 
 
   fetchGeoDataApi(city: string) {
+    console.log(city);
+    
     const headers = new HttpHeaders ({
       'X-Api-Key' : this.geoLocationApiKey,
     });

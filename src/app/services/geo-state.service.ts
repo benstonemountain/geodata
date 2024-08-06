@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GeoDataService } from './geo-data.service';
-import { BehaviorSubject, forkJoin, map, switchMap } from 'rxjs';
+import { BehaviorSubject, forkJoin, map, switchMap, tap } from 'rxjs';
 import { GeoData } from '../model/geo-data';
 
 @Injectable({
@@ -11,6 +11,9 @@ export class GeoStateService {
 
   private _geoDataSubject = new BehaviorSubject<GeoData[] | null>(null);
   readonly geoDataObservable$ = this._geoDataSubject.asObservable();
+
+  private _errorMessageSubject = new BehaviorSubject<boolean>(false);
+  readonly errorMessageObservable$ = this._errorMessageSubject.asObservable();
 
   private _countryNameSubject = new BehaviorSubject<{ [key: string]: string }>(
     {}
@@ -25,12 +28,31 @@ export class GeoStateService {
     this.geoDataService
       .fetchGeoDataApi(city)
       .pipe(
+
+        tap((geoData) => {
+          console.log('Original geoData:', geoData);
+          if (geoData.length === 0) {
+            console.error('nem jött vissza semmi');
+            this._errorMessageSubject.next(true);
+
+            // this._errorMessageSubject.pipe(
+            //   tap(value => console.log('Error Message Subject Value:', value))
+            // ).subscribe();
+          } 
+
+          
+  
+       
+      }),
+
+
         switchMap((geoData) => 
           forkJoin(
             geoData.map((d) => 
               this.geoDataService.fetchCountryName(d.latitude, d.longitude).pipe(
                 map((response) => {
-                  // console.log(response);
+             console.log(response);
+             
                   d.country = response.countryName;
                   return d;
                 })
@@ -57,9 +79,6 @@ export class GeoStateService {
           });
 
           console.log(filteredGeoDataArray);
-          
-
-
 
           this._geoDataSubject.next(filteredGeoDataArray);
         },
@@ -68,6 +87,7 @@ export class GeoStateService {
           console.log(err);
         },
       });
+    
   }
 
 }
