@@ -18,7 +18,7 @@ weatherApiKey = environment.weatherApiKey;
     console.log(lat, lon);
     
 
-    return this.httpClient.get<WeatherInfo>(`${this.basicWeatherApiUrl}?lat=${lat}&lon=${lon}&appid=${this.weatherApiKey}&units=metric&lang=hu`)
+    return this.httpClient.get<WeatherInfo>(`${this.basicWeatherApiUrl}?lat=${lat}&lon=${lon}&appid=${this.weatherApiKey}&units=metric&lang=en`)
   }
 
 

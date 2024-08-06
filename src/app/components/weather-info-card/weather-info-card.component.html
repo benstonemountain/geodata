@@ -1,8 +1,7 @@
 <div class="weather-info-card-wrap" *ngIf="weatherData">
 	<div *ngFor="let i of weatherData?.weather" class="cloud-description-wrap">
 		<div class="cloud-description-content" >
-			<div>{{firstLetterToUpperCase(i.description)}} ({{weatherData.clouds.all}}%-ban
-                felhős)</div>
+			<div>{{firstLetterToUpperCase(i.description)}} (Cloudiness: {{weatherData.clouds.all}}%)</div>
           <div>
             <img class="weather-icon"
             src="https://openweathermap.org/img/wn/{{i.icon}}@2x.png"
@@ -14,46 +13,46 @@
 	</div>
 
 	<div class="temperature">
-		<div>Hőmérséklet:</div>
+		<div>Temperature:</div>
 		<div>{{weatherData.main.temp.toFixed(1)}} C°</div>
 	</div>
 
 	<div class="temp_feel">
-		<div>Hőérzet:</div>
+		<div>Feel like:</div>
 		<div>{{weatherData.main.feels_like.toFixed(1)}} C°</div>
 	</div>
 
 	<div class="pressure">
-		<div>Légnyomás (tengerszinten):</div>
+		<div>Air pressure (sea level):</div>
 		<div>{{weatherData.main.sea_level}} hPa</div>
 	</div>
 
 	<div class="humidity">
-		<div>Páratartalom:</div>
+		<div>Humidity:</div>
 		<div>{{weatherData.main.humidity}} %</div>
 	</div>
 
 	<div class="wind-direction">
-		<div>Szélirány:</div>
+		<div>Wind direction:</div>
 		<div>{{weatherData.wind.deg}}° ({{getWindDirection(weatherData.wind.deg)}})</div>
 	</div>
 
 	<div class="wind-speed">
-		<div>Szél sebesség:</div>
+		<div>Wind speed:</div>
 		<div>
-			{{convertWindSpeed(+weatherData.wind.speed.toFixed(1))}} km/ó ({{getWindSpeedExplanation(weatherData.wind.speed)
+			{{convertWindSpeed(weatherData.wind.speed)}} km/h ({{getWindSpeedExplanation(weatherData.wind.speed)
 			}})
 		</div>
 	</div>
 
 	
     <div class="sunrise">
-            <div>Napfelkelte (magyar idő szerint):</div>
+            <div>Sunrise (according to UTC+1):</div>
             <div>{{convertEpochTime(weatherData.sys.sunrise) | date:'yyyy:MM:dd HH:mm'}}</div>
     </div>
 
     <div class="sunfall">
-            <div>Naplemente: (magyar idő szerint)</div>
+            <div>Sunset: (according to UTC+1)</div>
             <div>{{convertEpochTime(weatherData.sys.sunset) | date:'yyyy:MM:dd HH:mm'}}</div>
     </div>
 

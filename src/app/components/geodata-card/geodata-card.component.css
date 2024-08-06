@@ -1,16 +1,16 @@
 .geo-data-card {
 	border: 1px solid rgb(206, 206, 206);
-    border-radius: 4px;
+	border-radius: 4px;
 	width: 600px;
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
 	margin-bottom: 5px;
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    transition: transform 0.2s;
+	transition: transform 0.2s;
 }
 
 .geo-data-card:hover {
-    transform: translateY(-1px); /* Move up by 1px */
+	transform: translateY(-1px); /* Move up by 1px */
 }
 
 .geo-data-card > div {
@@ -23,11 +23,19 @@
 }
 
 .geo-data-card.selected {
-	background: #2980B9;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #b9d3fc, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	
-
+	background: #2980b9; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#ffffff,
+		#6dd5fa,
+		#2980b9
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to bottom,
+		#b9d3fc,
+		#6dd5fa,
+		#2980b9
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* .geodata-button-wrap {
@@ -35,34 +43,33 @@
 } */
 
 .geodata-button {
-
-  background-color: #0095ff;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 6px 8px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
+	background-color: #0095ff;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.15385;
+	margin: 0;
+	outline: none;
+	padding: 6px 10px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	vertical-align: baseline;
+	white-space: nowrap;
 }
 
 .geodata-button:hover,
 .geodata-button:focus {
-  background-color: #07c;
+	background-color: #07c;
 }
 
 /* .geodata-button:focus {
@@ -70,7 +77,6 @@
 } */
 
 .geodata-button:active {
-  background-color: #0064bd;
-  box-shadow: none;
+	background-color: #0064bd;
+	box-shadow: none;
 }
-

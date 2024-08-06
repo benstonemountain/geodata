@@ -2,7 +2,7 @@
 
 	<app-header-form (onEmitCityName)="gettingCityName($event)" ></app-header-form>
 
-	<div *ngIf="geoLocationData$ | async as geoLocationData" class="geodata-card-container">
+	<div *ngIf="geoLocationData$ | async as geoLocationData" class="geodata-card-container child-app-wrap">
 		<div class="geo-data-card-table">
 			<div>City</div>
 			<div>Country</div>
@@ -20,12 +20,13 @@
 			></app-geodata-card>
 		</div>
 	</div>
+	
+	<div *ngIf="timeData$" class="timeinfo-card-home-container child-app-wrap" >
+		<app-time-info-card [timeInfo$]="timeData$"></app-time-info-card>
+	</div>
 
 	<div *ngIf="weatherData$">
 		<app-weather-info-card [weatherData]="weatherData$ | async"></app-weather-info-card>
 	</div>
 
-	<div *ngIf="timeData$">
-		<app-time-info-card [timeInfo$]="timeData$"></app-time-info-card>
-	</div>
 </div>

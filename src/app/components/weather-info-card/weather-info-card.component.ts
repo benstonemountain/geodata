@@ -12,7 +12,7 @@ export class WeatherInfoCardComponent {
 
   convertWindSpeed(meterPerSec: number): number {
     //a m/s-ban megadott adatot km/h-vá alakítja
-    return +(meterPerSec*3.6).toFixed(2);
+    return +(meterPerSec*3.6).toFixed(1);
   }
 
   getWindSpeedExplanation(speed: number): string {

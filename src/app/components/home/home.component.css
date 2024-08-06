@@ -1,5 +1,4 @@
-.geodata-card-container {
-
+.child-app-wrap {
 	margin-top: 10px;
     display: flex;
 	flex-direction: column;
@@ -27,3 +26,7 @@
     text-align: center;
     overflow-y: auto;
 }
+
+/* time info app card */
+
+
