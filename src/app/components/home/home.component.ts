@@ -52,4 +52,9 @@ export class HomeComponent {
     	this.timeInfoStateService.getTimeInfo(null);
 		this.selectedCardIndex = null;
 	}
+
+	onChangeErrorState(){
+		this.geoStateService.onCloseErrorMessageWindow();
+
+	}
 }

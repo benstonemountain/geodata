@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,5 +9,13 @@ import { Observable } from 'rxjs';
 export class CitySearchErrorComponent {
 
   @Input() citySearchError$ = new Observable<boolean>;
+
+  
+  
+  @Output() onEmitEvent = new EventEmitter<boolean>;
+  
+  onCloseErrorWindow() {
+    this.onEmitEvent.emit(false);
+  }
 
 }

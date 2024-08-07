@@ -1,3 +1,8 @@
-<div class="error-message" *ngIf="citySearchError$ | async">
-    Nincs találat
+
+<div class="overlay" *ngIf="citySearchError$ | async">
+    <div class="error-message" >
+        There are no results that match your search!<span class="close-box-button" (click)="onCloseErrorWindow()">X</span>
+    </div>
 </div>
+
+

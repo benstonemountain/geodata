@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	
-	<app-city-search-error [citySearchError$]="citySearchError$"></app-city-search-error>
+	<app-city-search-error [citySearchError$]="citySearchError$" (onEmitEvent)="onChangeErrorState()"></app-city-search-error>
 
 
 	<div *ngIf="timeData$" class="timeinfo-card-home-container child-app-wrap" >

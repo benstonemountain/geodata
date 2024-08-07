@@ -34,6 +34,7 @@ export class GeoStateService {
           if (geoData.length === 0) {
             console.error('nem jött vissza semmi');
             this._errorMessageSubject.next(true);
+            this._geoDataSubject.next(null);
 
             // this._errorMessageSubject.pipe(
             //   tap(value => console.log('Error Message Subject Value:', value))
@@ -88,6 +89,10 @@ export class GeoStateService {
         },
       });
     
+  }
+
+  onCloseErrorMessageWindow() {
+      this._errorMessageSubject.next(false);
   }
 
 }
