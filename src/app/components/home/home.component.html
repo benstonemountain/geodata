@@ -1,6 +1,6 @@
 <div class="home-wrap">
 
-	<app-header-form (onEmitCityName)="gettingCityName($event)" ></app-header-form>
+	<app-header-form (onEmitCityName)="gettingCityName($event)" (onEmitError)="onOpenErrorWindow()"></app-header-form>
 
 	<div *ngIf="geoLocationData$ | async as geoLocationData" class="geodata-card-container child-app-wrap">
 		<div class="geo-data-card-table">
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	
-	<app-city-search-error [citySearchError$]="citySearchError$" (onEmitEvent)="onChangeErrorState()"></app-city-search-error>
+	<app-city-search-error [citySearchError$]="citySearchError$" (onEmitEvent)="onCloseErrorWindow()"></app-city-search-error>
 
 
 	<div *ngIf="timeData$" class="timeinfo-card-home-container child-app-wrap" >

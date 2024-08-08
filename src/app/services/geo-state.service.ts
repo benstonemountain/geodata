@@ -33,20 +33,15 @@ export class GeoStateService {
           console.log('Original geoData:', geoData);
           if (geoData.length === 0) {
             console.error('nem jött vissza semmi');
-            this._errorMessageSubject.next(true);
+            this.onOpenErrorMessageWindow();
             this._geoDataSubject.next(null);
 
             // this._errorMessageSubject.pipe(
             //   tap(value => console.log('Error Message Subject Value:', value))
             // ).subscribe();
           } 
-
-          
-  
        
       }),
-
-
         switchMap((geoData) => 
           forkJoin(
             geoData.map((d) => 
@@ -93,6 +88,9 @@ export class GeoStateService {
 
   onCloseErrorMessageWindow() {
       this._errorMessageSubject.next(false);
+  }
+  onOpenErrorMessageWindow() {
+      this._errorMessageSubject.next(true);
   }
 
 }

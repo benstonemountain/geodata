@@ -53,8 +53,10 @@ export class HomeComponent {
 		this.selectedCardIndex = null;
 	}
 
-	onChangeErrorState(){
+	onCloseErrorWindow(){
 		this.geoStateService.onCloseErrorMessageWindow();
-
+	}
+	onOpenErrorWindow(){
+		this.geoStateService.onOpenErrorMessageWindow();
 	}
 }
