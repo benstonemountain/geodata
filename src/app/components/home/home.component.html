@@ -29,7 +29,7 @@
 	</div>
 
 	<div *ngIf="weatherData$">
-		<app-weather-info-card [weatherData]="weatherData$ | async"></app-weather-info-card>
+		<app-weather-info-card [weatherData]="weatherData$ | async"  (onEmitForAqi)="sendInfoForAqi()"></app-weather-info-card>
 	</div>
 
 </div>

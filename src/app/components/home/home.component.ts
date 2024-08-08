@@ -5,6 +5,7 @@ import { map, Observable } from 'rxjs';
 import { GeoData } from '../../model/geo-data';
 import { WeatherStateService } from '../../services/weather-state.service';
 import { TimeinfoStateService } from '../../services/timeinfo-state.service';
+import { AqiStateService } from '../../services/aqi-state.service';
 
 @Component({
 	selector: 'app-home',
@@ -27,11 +28,14 @@ export class HomeComponent {
 
 	  citySearchError$: Observable<boolean> = this.geoStateService.errorMessageObservable$;
 
+	  LatAndLonOfSelectedItem!: {lat: number, lon: number};
+
 
 	constructor(
 		private geoStateService: GeoStateService,
 		private weatherStateService: WeatherStateService,
     	private timeInfoStateService: TimeinfoStateService,
+		private aqiStateService: AqiStateService,
 	) {}
 
 
@@ -42,7 +46,8 @@ export class HomeComponent {
 		this.timeInfoStateService.getTimeInfo(cor);
 		this.selectedCardIndex = index; 
 		console.log("selected index: ", this.selectedCardIndex);
-		
+		this.LatAndLonOfSelectedItem = cor;
+		console.log(this.LatAndLonOfSelectedItem);
 	  }
 
 	gettingCityName(cityName: string) {
@@ -58,5 +63,9 @@ export class HomeComponent {
 	}
 	onOpenErrorWindow(){
 		this.geoStateService.onOpenErrorMessageWindow();
+	}
+
+	sendInfoForAqi() {
+		this.aqiStateService.getAqiInformation(this.LatAndLonOfSelectedItem);
 	}
 }

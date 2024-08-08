@@ -5,6 +5,7 @@ export const environment = {
 
     countryNameApi: "https://api-bdc.net/data/reverse-geocode",
 
+    airPollutionDataUrl: "http://api.openweathermap.org/data/2.5/air_pollution",
     weatherApiUrl: "https://api.openweathermap.org/data/2.5/weather",
     weatherApiKey: "2eca79207a882632be3d0a6c7b62492c",
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WeatherInfo } from '../../model/weather-info';
 
 @Component({
@@ -9,6 +9,8 @@ import { WeatherInfo } from '../../model/weather-info';
 export class WeatherInfoCardComponent {
 
   @Input() weatherData!: WeatherInfo | null;
+
+  @Output() onEmitForAqi = new EventEmitter<boolean>;
 
   convertWindSpeed(meterPerSec: number): number {
     //a m/s-ban megadott adatot km/h-vá alakítja
@@ -85,6 +87,10 @@ export class WeatherInfoCardComponent {
     const firstLetter = text.charAt(0).toUpperCase();
     return  firstLetter+text.slice(1);
 
+  }
+
+  onSendCoordinates() {
+      this.onEmitForAqi.emit(true);
   }
 
 
