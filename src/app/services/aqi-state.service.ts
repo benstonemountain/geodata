@@ -13,8 +13,10 @@ export class AqiStateService {
 
 	getAqiInformation(coordinates: { lat: number; lon: number }) {
 		this.aqiDataService.fetchAqiData(coordinates).subscribe({
-			next: (aqiInfo) => {
-				console.log(aqiInfo.list[0].components);
+			next: (fullPollutionInfo) => {
+				const aqiInfo = fullPollutionInfo.list[0].components
+				console.log(aqiInfo);
+			
 			},
 			error: (err) => {
 				console.log(err);

@@ -12,6 +12,8 @@ import { WeatherInfoCardComponent } from './components/weather-info-card/weather
 import { TimeInfoCardComponent } from './components/time-info-card/time-info-card.component';
 import { HeaderFormComponent } from './components/header-form/header-form.component';
 import { CitySearchErrorComponent } from './components/city-search-error/city-search-error.component';
+import { PollutionInfoCardComponent } from './components/pollution-info-card/pollution-info-card.component';
+
 
 
 @NgModule({
@@ -24,8 +26,8 @@ import { CitySearchErrorComponent } from './components/city-search-error/city-se
     TimeInfoCardComponent,
     HeaderFormComponent,
     CitySearchErrorComponent,
-
-    
+    PollutionInfoCardComponent,
+   
   ],
   imports: [
     BrowserModule,
